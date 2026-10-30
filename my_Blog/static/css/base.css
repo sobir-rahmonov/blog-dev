@@ -1,0 +1,375 @@
+/* SobirDev Blog - rangli minimal dizayn
+   Joylashuvi: static/css/base.css */
+
+:root {
+  --bg: #f5f3ff;
+  --bg-glow-1: rgba(167, 139, 250, 0.35);
+  --bg-glow-2: rgba(244, 114, 182, 0.25);
+  --surface: #ffffff;
+  --text: #1e1b4b;
+  --muted: #6b6b8d;
+  --border: #e4defa;
+  --accent: #7c3aed;
+  --accent-2: #ec4899;
+  --accent-hover: #6d28d9;
+  --danger: #e11d48;
+  --shadow: 0 8px 24px rgba(124, 58, 237, 0.12);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0a1f;
+    --bg-glow-1: rgba(124, 58, 237, 0.35);
+    --bg-glow-2: rgba(236, 72, 153, 0.18);
+    --surface: #1a1330;
+    --text: #f3f0ff;
+    --muted: #a59cc8;
+    --border: #2d2350;
+    --accent: #a78bfa;
+    --accent-2: #f472b6;
+    --accent-hover: #c4b5fd;
+    --danger: #fb7185;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 10% 0%, var(--bg-glow-1), transparent 45%),
+    radial-gradient(circle at 90% 10%, var(--bg-glow-2), transparent 40%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  max-width: 44rem;
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Havolalar ---------- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--accent-2);
+}
+
+/* ---------- Sarlavha (rangli banner) ---------- */
+header {
+  margin-bottom: 1rem;
+  padding: 1.75rem 1.75rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+}
+
+header h1 a {
+  color: #fff;
+}
+
+header h1 a:hover {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* ---------- Kirish / chiqish paneli ---------- */
+body > p,
+body > form {
+  display: inline-block;
+  margin: 0.5rem 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+body > p a {
+  margin-right: 0.75rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 500;
+}
+
+body > p a:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Asosiy qism ---------- */
+body > div {
+  margin-top: 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Postlar ---------- */
+.post-entry {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem 1.4rem 1.9rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+/* chap tomondagi rangli chiziq */
+.post-entry::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+
+.post-entry:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.post-entry h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+
+.post-entry h2 a {
+  color: var(--text);
+}
+
+.post-entry h2 a:hover {
+  color: var(--accent);
+}
+
+.post-entry h3 {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.15rem 0.75rem;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.post-entry p {
+  margin: 0;
+  color: var(--muted);
+  white-space: pre-line;
+}
+
+.post-entry h3 + p {
+  color: var(--text);
+}
+
+/* Tahrirlash / o'chirish havolalari */
+.post-entry ~ p {
+  display: inline-block;
+  margin: 0.25rem 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.post-entry ~ p a {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.post-entry ~ p a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.post-entry ~ p a[href*="delete"] {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.post-entry ~ p a[href*="delete"]:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ---------- Formalar ---------- */
+body > div form {
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+form p {
+  margin: 0 0 1.1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+textarea {
+  min-height: 12rem;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.helptext,
+.errorlist {
+  display: block;
+  margin: 0.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.errorlist {
+  color: var(--danger);
+}
+
+/* ---------- Tugmalar ---------- */
+button,
+input[type="submit"] {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* Chiqish tugmasi - yengilroq ko'rinish */
+body > form button {
+  padding: 0.3rem 0.9rem;
+  background: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+body > form button:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  filter: none;
+}
+
+/* ---------- Pastki qism (footer) ---------- */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+  text-align: center;
+}
+
+footer h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+footer h2 a {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: transform 0.15s, filter 0.15s;
+}
+
+footer h2 a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  header {
+    padding: 1.25rem;
+  }
+
+  .post-entry {
+    padding: 1.1rem 1.1rem 1.1rem 1.5rem;
+  }
+}
